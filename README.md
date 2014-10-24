@@ -34,7 +34,7 @@ In order to build the RefOS implementation codebase:
 1. Read: http://sel4.systems/Download/. Set up the environment (repo tool, cross compilers...etc) as per the 
    instructions on the page.
 
-3. > repo init -u ssh://git@github.inside.nicta.com.au/seL4/refos-manifest -b master
+3. > repo init -u ssh://git@github.com/seL4/refos-manifest -b master
 
 4. > repo sync
 
