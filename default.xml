@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+     Copyright 2014, NICTA
+
+     This software may be distributed and modified according to the terms of
+     the BSD 2-Clause license. Note that NO WARRANTY is provided.
+     See "LICENSE_BSD2.txt" for details.
+
+     @TAG(NICTA_BSD)
+  -->
+
+<manifest>
+
+    <!-- We assume this manifest is in the same path as all the libraries. If you are
+     copying this manifest as a template then you probably want the fetch path
+     for this to be '../seL4' instead of '.' -->
+    <remote name="seL4"
+        fetch="."
+    />
+
+    <!-- default revision for each project, and name of the remote -->
+    <default revision="master"
+        remote="seL4"
+    />
+
+    <!-- list of 'projects' (i.e repositories), path is relative to the path in remote above -->
+    <project name="seL4.git" path="kernel" revision="experimental" />
+    <project name="common-tool.git" path="tools/common"/>
+    <project name="kbuild-tool.git" path="tools/kbuild"/>
+    <project name="elfloader-tool.git" path="tools/elfloader"/>
+    <project name="libmuslc.git" path="libs/libmuslc"/>
+    <project name="libsel4muslcsys.git" path="libs/libsel4muslcsys"/>
+    <project name="libsel4platsupport.git" path="libs/libsel4platsupport"/>
+    <project name="elfloader-tool.git" path="libs/elfloader"/>
+    <project name="libsel4allocman.git" path="libs/libsel4allocman"/>
+    <project name="libsel4vka.git" path="libs/libsel4vka"/>
+    <project name="libsel4vspace.git" path="libs/libsel4vspace"/>
+    <project name="libsel4utils.git" path="libs/libsel4utils"/>
+    <project name="libcpio.git" path="libs/libcpio"/>
+    <project name="libelf.git" path="libs/libelf"/>
+    <project name="libsel4simple.git" path="libs/libsel4simple"/>
+    <project name="libsel4simple-stable.git" path="libs/libsel4simple-stable"/>
+    <project name="libplatsupport.git" path="libs/libplatsupport"/>
+    <project name="libutils.git" path="libs/libutils"/>
+
+    <project name="refos.git" path="projects/refos">
+        <!-- symlinks to make the project structure fit the build system -->
+        <linkfile src="impl/Makefile" dest="Makefile"/>
+        <linkfile src="impl/Kconfig" dest="Kconfig"/>
+        <linkfile src="impl/configs" dest="configs"/>
+        <linkfile src="impl/apps" dest="apps"/>
+        <linkfile src="../../kernel/libsel4" dest="libs/libsel4"/>
+
+        <!-- symlinks for CIDL and docs folder -->
+        <linkfile src="impl/cidl_compile" dest="cidl_compile"/>
+        <linkfile src="impl/cidl_templates" dest="cidl_templates"/>
+        <linkfile src="impl/refos_cidl_compile" dest="refos_cidl_compile"/>
+        <linkfile src="impl/docs" dest="docs"/>
+
+        <!-- symlinks for RefOS project specific libraries -->
+        <linkfile src="impl/libs/Kbuild" dest="libs/Kbuild"/>
+        <linkfile src="impl/libs/Kconfig" dest="libs/Kconfig"/>
+        <linkfile src="impl/libs/libdatastruct" dest="libs/libdatastruct"/>
+        <linkfile src="impl/libs/librefos" dest="libs/librefos"/>
+        <linkfile src="impl/libs/librefossys" dest="libs/librefossys"/>
+        <linkfile src="impl/libs/libvterm" dest="libs/libvterm"/>
+        
+        <!-- symlink for RefOS readme -->
+        <linkfile src="README.md" dest="README.md"/>
+        <linkfile src="LICENSE_BSD2.txt" dest="LICENSE_BSD2.txt"/>
+    </project>
+
+
+</manifest>
