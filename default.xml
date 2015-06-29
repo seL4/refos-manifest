@@ -47,6 +47,7 @@
     <project name="refos.git" path="projects/refos">
         <!-- symlinks to make the project structure fit the build system -->
         <linkfile src="impl/Makefile" dest="Makefile"/>
+        <linkfile src="impl/Kbuild" dest="Kbuild"/>
         <linkfile src="impl/Kconfig" dest="Kconfig"/>
         <linkfile src="impl/configs" dest="configs"/>
         <linkfile src="impl/apps" dest="apps"/>
