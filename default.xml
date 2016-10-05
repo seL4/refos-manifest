@@ -14,37 +14,51 @@
 
     <!-- We assume this manifest is in the same path as all the libraries. If you are
      copying this manifest as a template then you probably want the fetch path
-     for this to be '../seL4' instead of '.' -->
-    <remote name="seL4"
-        fetch="."
-    />
+     for this to be '../seL4' instead of '.' added to .repo/local_manifest/ -->
+    <remote name="current" fetch="."/>
 
     <!-- default revision for each project, and name of the remote -->
-    <default revision="master"
-        remote="seL4"
-    />
+    <default revision="master" remote="current"/>
 
-    <!-- list of 'projects' (i.e repositories), path is relative to the path in remote above -->
-    <project name="seL4.git" path="kernel" revision="experimental" />
-    <project name="common-tool.git" path="tools/common"/>
-    <project name="kbuild-tool.git" path="tools/kbuild"/>
-    <project name="elfloader-tool.git" path="tools/elfloader"/>
-    <project name="libmuslc.git" path="libs/libmuslc"/>
-    <project name="libsel4muslcsys.git" path="libs/libsel4muslcsys"/>
-    <project name="libsel4platsupport.git" path="libs/libsel4platsupport"/>
-    <project name="elfloader-tool.git" path="libs/elfloader"/>
-    <project name="libsel4allocman.git" path="libs/libsel4allocman"/>
-    <project name="libsel4vka.git" path="libs/libsel4vka"/>
-    <project name="libsel4vspace.git" path="libs/libsel4vspace"/>
-    <project name="libsel4utils.git" path="libs/libsel4utils"/>
-    <project name="libcpio.git" path="libs/libcpio"/>
-    <project name="libelf.git" path="libs/libelf"/>
-    <project name="libsel4simple.git" path="libs/libsel4simple"/>
-    <project name="libsel4simple-stable.git" path="libs/libsel4simple-stable"/>
-    <project name="libplatsupport.git" path="libs/libplatsupport"/>
-    <project name="libutils.git" path="libs/libutils"/>
+    <!-- the seL4 kernel -->
+    <project remote="current" name="seL4.git" path="kernel">
+      <linkfile src="libsel4" dest="libs/libsel4"/>
+    </project>
 
-    <project name="refos.git" path="projects/refos">
+    <!-- tools for building -->
+    <project remote="current" name="seL4_tools.git" path="projects/tools">
+      <linkfile src="common-tool" dest="tools/common"/>
+      <linkfile src="kbuild-tool" dest="tools/kbuild"/>
+      <linkfile src="elfloader-tool" dest="tools/elfloader"/>
+      <linkfile src="elfloader-tool" dest="libs/elfloader"/>
+    </project>
+
+    <!-- C library -->
+    <project remote="current" name="libmuslc.git" path="libs/libmuslc"/> 
+
+    <!-- seL4-specific libraries -->
+    <project remote="current" name="seL4_libs.git" path="projects/seL4_libs">
+      <linkfile src="libsel4allocman" dest="libs/libsel4allocman"/>
+      <linkfile src="libsel4debug" dest="libs/libsel4debug"/>
+      <linkfile src="libsel4muslcsys" dest="libs/libsel4muslcsys"/>
+      <linkfile src="libsel4platsupport" dest="libs/libsel4platsupport"/>
+      <linkfile src="libsel4simple" dest="libs/libsel4simple"/>
+      <linkfile src="libsel4simple-default" dest="libs/libsel4simple-default"/>
+      <linkfile src="libsel4test" dest="libs/libsel4test"/>
+      <linkfile src="libsel4utils" dest="libs/libsel4utils"/>
+      <linkfile src="libsel4vka" dest="libs/libsel4vka"/>
+      <linkfile src="libsel4vspace" dest="libs/libsel4vspace"/>
+    </project>
+
+    <!-- seL4-independent libraries -->
+    <project remote="current" name="util_libs.git" path="projects/util_libs">
+      <linkfile src="libcpio" dest="libs/libcpio"/>
+      <linkfile src="libelf" dest="libs/libelf"/>
+      <linkfile src="libplatsupport" dest="libs/libplatsupport" />
+      <linkfile src="libutils" dest="libs/libutils"/>
+    </project>
+
+    <project remote="current" name="refos.git" path="projects/refos">
         <!-- symlinks to make the project structure fit the build system -->
         <linkfile src="impl/Makefile" dest="Makefile"/>
         <linkfile src="impl/Kbuild" dest="Kbuild"/>
