@@ -27,33 +27,39 @@
     />
 
     <!-- list of 'projects' (i.e repositories), path is relative to the path in remote above -->
-    <project name="seL4.git" path="kernel" revision="experimental" />
-    <project name="common-tool.git" path="tools/common"/>
-    <project name="kbuild-tool.git" path="tools/kbuild"/>
-    <project name="elfloader-tool.git" path="tools/elfloader"/>
-    <project name="libmuslc.git" path="libs/libmuslc"/>
-    <project name="libsel4muslcsys.git" path="libs/libsel4muslcsys"/>
-    <project name="libsel4platsupport.git" path="libs/libsel4platsupport"/>
-    <project name="elfloader-tool.git" path="libs/elfloader"/>
-    <project name="libsel4allocman.git" path="libs/libsel4allocman"/>
-    <project name="libsel4vka.git" path="libs/libsel4vka"/>
-    <project name="libsel4vspace.git" path="libs/libsel4vspace"/>
-    <project name="libsel4utils.git" path="libs/libsel4utils"/>
-    <project name="libcpio.git" path="libs/libcpio"/>
-    <project name="libelf.git" path="libs/libelf"/>
-    <project name="libsel4simple.git" path="libs/libsel4simple"/>
-    <project name="libsel4simple-stable.git" path="libs/libsel4simple-stable"/>
-    <project name="libplatsupport.git" path="libs/libplatsupport"/>
-    <project name="libutils.git" path="libs/libutils"/>
-
-    <project name="refos.git" path="projects/refos">
+    <project name="seL4" path="kernel">
+        <linkfile src="libsel4" dest="libs/libsel4"/>
+    </project>
+    <project name="seL4_tools">
+        <linkfile src="common-tool" dest="tools/common"/>
+        <linkfile src="kbuild-tool" dest="tools/kbuild"/>
+        <linkfile src="elfloader-tool" dest="tools/elfloader"/>
+    </project>
+    <project name="seL4_libs" path="projects/seL4_libs">
+        <linkfile src="libsel4allocman" dest="libs/libsel4allocman"/>
+        <linkfile src="libsel4debug" dest="libs/libsel4debug"/>
+        <linkfile src="libsel4muslcsys" dest="libs/libsel4muslcsys"/>
+        <linkfile src="libsel4platsupport" dest="libs/libsel4platsupport"/>
+        <linkfile src="libsel4vka" dest="libs/libsel4vka"/>
+        <linkfile src="libsel4vspace" dest="libs/libsel4vspace"/>
+        <linkfile src="libsel4utils" dest="libs/libsel4utils"/>
+        <linkfile src="libsel4simple" dest="libs/libsel4simple"/>
+        <linkfile src="libsel4simple-default" dest="libs/libsel4simple-default"/>
+    </project>
+    <project name="util_libs" path="projects/util_libs">
+        <linkfile src="libcpio" dest="libs/libcpio"/>
+        <linkfile src="libelf" dest="libs/libelf"/>
+        <linkfile src="libplatsupport" dest="libs/libplatsupport"/>
+        <linkfile src="libutils" dest="libs/libutils"/>
+    </project>
+    <project name="musllibc" path="libs/libmuslc" revision="sel4"/>
+    <project name="refos" path="projects/refos">
         <!-- symlinks to make the project structure fit the build system -->
         <linkfile src="impl/Makefile" dest="Makefile"/>
         <linkfile src="impl/Kbuild" dest="Kbuild"/>
         <linkfile src="impl/Kconfig" dest="Kconfig"/>
         <linkfile src="impl/configs" dest="configs"/>
         <linkfile src="impl/apps" dest="apps"/>
-        <linkfile src="../../kernel/libsel4" dest="libs/libsel4"/>
 
         <!-- symlinks for CIDL and docs folder -->
         <linkfile src="impl/cidl_compile" dest="cidl_compile"/>
@@ -68,11 +74,9 @@
         <linkfile src="impl/libs/librefos" dest="libs/librefos"/>
         <linkfile src="impl/libs/librefossys" dest="libs/librefossys"/>
         <linkfile src="impl/libs/libvterm" dest="libs/libvterm"/>
-        
+
         <!-- symlink for RefOS readme -->
         <linkfile src="README.md" dest="README.md"/>
         <linkfile src="LICENSE_BSD2.txt" dest="LICENSE_BSD2.txt"/>
     </project>
-
-
 </manifest>
