@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+     Copyright 2016, Data61
+     Commonwealth Scientific and Industrial Research Organisation (CSIRO)
+     ABN 41 687 119 230.
+
+     This software may be distributed and modified according to the terms of
+     the BSD 2-Clause license. Note that NO WARRANTY is provided.
+     See "LICENSE_BSD2.txt" for details.
+
+     @TAG(D61_BSD)
+  -->
+
+<manifest>
+
+    <!-- We assume this manifest is in the same path as all the libraries. If you are
+     copying this manifest as a template then you probably want the fetch path
+     for this to be '../seL4' instead of '.' -->
+    <remote name="seL4"
+        fetch="."
+    />
+
+    <!-- default revision for each project, and name of the remote -->
+    <default revision="master"
+        remote="seL4"
+    />
+
+    <!-- list of 'projects' (i.e repositories), path is relative to the path in remote above -->
+    <project name="seL4" path="kernel" revision="4f2123b7636305faa28fb8d17d593721f06ccc13">
+        <linkfile src="libsel4" dest="libs/libsel4"/>
+    </project>
+    <project name="seL4_tools" revision="79251ae58462ef2475e22e7a2ce0a6aa9cf8e38d">
+        <linkfile src="common-tool" dest="tools/common"/>
+        <linkfile src="kbuild-tool" dest="tools/kbuild"/>
+        <linkfile src="elfloader-tool" dest="tools/elfloader"/>
+    </project>
+    <project name="seL4_libs" path="projects/seL4_libs" revision="7241dba30dc4441b489fea59d81f5b9ba1ad8aa8">
+        <linkfile src="libsel4allocman" dest="libs/libsel4allocman"/>
+        <linkfile src="libsel4debug" dest="libs/libsel4debug"/>
+        <linkfile src="libsel4muslcsys" dest="libs/libsel4muslcsys"/>
+        <linkfile src="libsel4platsupport" dest="libs/libsel4platsupport"/>
+        <linkfile src="libsel4vka" dest="libs/libsel4vka"/>
+        <linkfile src="libsel4vspace" dest="libs/libsel4vspace"/>
+        <linkfile src="libsel4utils" dest="libs/libsel4utils"/>
+        <linkfile src="libsel4simple" dest="libs/libsel4simple"/>
+        <linkfile src="libsel4simple-default" dest="libs/libsel4simple-default"/>
+    </project>
+    <project name="util_libs" path="projects/util_libs" revision="af3b11a3caa03554c1545414070f711c66082ed5">
+        <linkfile src="libcpio" dest="libs/libcpio"/>
+        <linkfile src="libelf" dest="libs/libelf"/>
+        <linkfile src="libplatsupport" dest="libs/libplatsupport"/>
+        <linkfile src="libutils" dest="libs/libutils"/>
+    </project>
+    <project name="musllibc" path="libs/libmuslc" revision="b5c66eef4a8bb274d7a4b9b5b82bce412224dbf9"/>
+    <project name="refos" path="projects/refos" revision="6cb62b58be5df1aa1970d5296324316d84b3f485">
+        <!-- symlinks to make the project structure fit the build system -->
+        <linkfile src="impl/Makefile" dest="Makefile"/>
+        <linkfile src="impl/Kbuild" dest="Kbuild"/>
+        <linkfile src="impl/Kconfig" dest="Kconfig"/>
+        <linkfile src="impl/configs" dest="configs"/>
+        <linkfile src="impl/apps" dest="apps"/>
+
+        <!-- symlinks for CIDL and docs folder -->
+        <linkfile src="impl/cidl_compile" dest="cidl_compile"/>
+        <linkfile src="impl/cidl_templates" dest="cidl_templates"/>
+        <linkfile src="impl/refos_cidl_compile" dest="refos_cidl_compile"/>
+        <linkfile src="impl/docs" dest="docs"/>
+
+        <!-- symlinks for RefOS project specific libraries -->
+        <linkfile src="impl/libs/Kbuild" dest="libs/Kbuild"/>
+        <linkfile src="impl/libs/Kconfig" dest="libs/Kconfig"/>
+        <linkfile src="impl/libs/libdatastruct" dest="libs/libdatastruct"/>
+        <linkfile src="impl/libs/librefos" dest="libs/librefos"/>
+        <linkfile src="impl/libs/librefossys" dest="libs/librefossys"/>
+        <linkfile src="impl/libs/libvterm" dest="libs/libvterm"/>
+
+        <!-- symlink for RefOS readme -->
+        <linkfile src="README.md" dest="README.md"/>
+        <linkfile src="LICENSE_BSD2.txt" dest="LICENSE_BSD2.txt"/>
+    </project>
+</manifest>
