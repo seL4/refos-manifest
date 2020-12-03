@@ -1,5 +1,11 @@
+<!--
+     Copyright 2016, Data61, CSIRO
+
+     SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 RefOS - Reference Design For A Microkernel Based Operating System
-=====
+=================================================================
 
 RefOS is a sample implementation of a simple multi-server operating system built on seL4.
 
@@ -76,7 +82,7 @@ In order to build the PDF design document:
 4. make design
 
    This command builds the PDF documentation and provides a path to the document.
-   
+
 
 #### Building Doxygen Code Documentation
 
@@ -89,14 +95,10 @@ In order to build the PDF design document:
 
 5. In a web browser, open "docs/html/index.html"
 
-License
--------
 
-The files in this repository are released under standard open source
-licenses. RefOS code is released under the BSD license where possible and GPL for some
-external software. Please see the individual file headers and
-[`LICENSE_BSD2.txt`](LICENSE_BSD2.txt) for details.
+No Warranty
+-----------
 
 Please note that RefOS is intended to be sample code and is not high assurance software.
-We are not reponsible for any consequences if you choose to deploy this software in
+We are not responsible for any consequences if you choose to deploy this software in
 production.
