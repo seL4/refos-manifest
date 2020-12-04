@@ -41,29 +41,30 @@ one would expect in a deployable operating system environment.
 
 In order to build RefOS's codebase:
 
-1. Read: https://wiki.sel4.systems/Getting_started#Setting_up_your_machine. Set up the environment
-   (repo tool, cross compilers and build dependencies) as per the instructions on the page.
+1. Read: <https://docs.sel4.systems/projects/buildsystem/host-dependencies.html>
+   Set up the environment (repo tool, cross compilers and build
+   dependencies) as per the instructions on the page.
 
-2. repo init -u ssh://git@github.com/seL4/refos-manifest -b master
+2. `repo init -u ssh://git@github.com/seL4/refos-manifest -b master`
 
-3. repo sync
+3. `repo sync`
 
 4. Install the following packages (package named based on Ubuntu 14.04):
-   > sudo apt-get install python-tempita
+   > `sudo apt-get install python-tempita`
 
 5. make help (to list the default configurations)
 
 6. make \<config\>, where \<config\> is one of the configurations listed with the \<make help\> command:
-   eg. make kzm\_debug\_test\_defconfig
+   eg. `make kzm\_debug\_test\_defconfig``
 
-7. make silentoldconfig
+7. `make silentoldconfig`
 
-8. make
+8. `make`
 
    You should now have a bootable system image (refos/images/refos-image).
 
 
-9. make simulate-kzm (or a different command depending on the configuration you chose, run \<make help\>
+9. `make simulate-kzm` (or a different command depending on the configuration you chose, run \<make help\>
    to list the different configurations and how to run them)
 
 
@@ -79,7 +80,7 @@ In order to build the PDF design document:
 3. Install the following packages (package named based on Ubuntu 14.04):
   > sudo apt-get install texlive-latex-base mscgen texlive-latex-extra texlive-fonts-recommended
 
-4. make design
+4. `make design`
 
    This command builds the PDF documentation and provides a path to the document.
 
@@ -91,7 +92,7 @@ In order to build the PDF design document:
 2. Install the following packages (package named based on Ubuntu 14.04):
   > sudo apt-get install doxygen
 
-3. make docs
+3. `make docs`
 
 5. In a web browser, open "docs/html/index.html"
 
